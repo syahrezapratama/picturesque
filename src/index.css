@@ -1,13 +1,234 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Configurations and variables */
+:root {
+  --fontBig: 1.5rem;
+  --fontMed: 1.2rem;
+  --fontSmall: 1rem;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  font-family: 'Karla', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Generic styles */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for classes */
+/* Navbar component  */
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: var(--fontBig);
+  font-family: 'Lora', sans-serif;
+  margin-left: 50px;
+}
+
+/* Searchbar component */
+.searchbar {
+  height: 50px;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.searchbar form {
+  flex-direction: row;
+}
+
+.searchbar-input {
+  position: relative;
+  width: 400px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #9f9f9f
+}
+
+.searchbar-input input {
+  border: none;
+  width: 100%;
+  margin-left: 20px;
+  font-size: var(--fontSmall);
+  height: 40px;
+  background: transparent;
+}
+
+.searchbar-input input:focus {
+  outline: none;
+}
+
+.searchbar button {
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 20px;
+  background-color: #1c1c1c;
+  border: 1px solid #1c1c1c;
+  color: #ffffff;
+  font-size: var(--fontSmall);
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Hero component */
+.hero {
+  background: linear-gradient(
+    to bottom, rgba(0, 0, 0, 0)
+    40%, rgba(0, 0, 0, 0.60)
+    100%
+  ), url('https://images.unsplash.com/photo-1541362254971-29e9b6af8d05?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMTc4MjV8MHwxfHNlYXJjaHw2fHxtb3VudGFpbiUyMGRhcmt8ZW58MHx8fHwxNjQ5Njk3NDg1&ixlib=rb-1.2.1&q=85');
+  background-size: 100%, cover;
+  background-position: center;
+  height: 550px;
+  position: relative;
+  transition: all 0.3s;
+  animation: fadeIn 1s;
+}
+
+.hero-content {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  z-index: 100;
+  max-width: 700px;
+  position: absolute;
+  bottom: 40px;
+  margin: 0 20px;
+  min-height: 100px;
+  color: #ffffff;
+}
+
+.hero-text h1 {
+  font-family: 'Lora', sans-serif;
+  font-size: var(--fontMed);
+}
+
+.hero-text p {
+  font-size: var(--fontSmall);
+}
+
+/* Grid component */
+.grid {
+  padding: 0 50px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  grid-auto-rows: 300px;
+}
+
+/* Thumbnail component */
+.thumbnail {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation: fadeIn 1s;
+}
+
+.thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+  opacity: 0.9;
+}
+
+/* Button component */
+.button-container {
+  margin: 0 0 40px 0;
+}
+
+.button {
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 20px;
+  background-color: #1c1c1c;
+  border: 1px solid #1c1c1c;
+  color: #ffffff;
+  font-size: var(--fontSmall);
+  cursor: pointer;
+}
+
+/* Image page component */
+.image-page {
+  padding: 0 20px;
+  height: 80vh;
+  transition: all 0.3s;
+  animation: fadeIn 1s
+}
+
+.image-container {
+  width: 600px;
+  height: 600px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-info {
+  margin-left: 20px;
+}
+
+/* Spinner component */
+.spinner {
+  border: 5px solid #eeeeee;
+  border-top: 5px solid #1c1c1c;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.8s linear infinite;
+  margin: 20px auto;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+
+@media screen and (max-width: 900px) {
+  .image-page {
+    flex-direction: column;
+  }
+  .image-container {
+    width: 400px;
+    height: 400px;
+  }
+  .image-info {
+    margin: 0;
+  }
 }
